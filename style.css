@@ -1,0 +1,54 @@
+canvas {
+	border: 10px solid black;
+	background-color: #cce6ff;
+	display: block;
+	margin: auto;
+}
+p, a {
+	text-align: center;
+	font-size: 1vw;
+	font-family: Arial, sans-serif;
+}
+h1 {
+	text-align: center;
+	font-size: 3.5vw;
+	font-family: Impact, Arial, sans-serif;
+}
+h2 {
+	text-align: center;
+	font-size: 2vw;
+	font-family: Arial, sans-serif;
+}
+button {
+	background-color: black;
+	border: none;
+	color: white;
+	padding: 1vw 2vw;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1vw;
+	cursor: pointer;
+}
+.list {
+    position: relative;
+    display: inline-block;
+}
+.listoptions {
+    display: none;
+    position: absolute;
+    background-color: gray;
+    min-width: 1vw;
+}
+.listoptions a {
+    color: black;
+    padding: .3vw .8vw;
+    text-decoration: none;
+    display: block;
+}
+.listoptions a:hover {
+	cursor: pointer;
+}
+.list:hover .listoptions {
+    display: block;
+}
