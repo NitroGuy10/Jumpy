@@ -28,7 +28,6 @@ button {
 	text-decoration: none;
 	display: inline-block;
 	font-size: 1vw;
-	cursor: pointer;
 }
 .list {
     position: relative;
@@ -47,8 +46,14 @@ button {
     display: block;
 }
 .listoptions a:hover {
-	cursor: pointer;
+	/*cursor: pointer;*/
 }
 .list:hover .listoptions {
     display: block;
+}
+#locked {
+	cursor: not-allowed;
+}
+#unlocked {
+	cursor: pointer;
 }
