@@ -41,9 +41,10 @@ button {
 }
 .listoptions a {
     color: black;
-    padding: .3vw .8vw;
+    padding: .5vw 1vw;
     text-decoration: none;
     display: block;
+	font-size: 2vw;
 }
 .listoptions a:hover {
 	/*cursor: pointer;*/
