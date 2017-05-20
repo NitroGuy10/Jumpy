@@ -313,7 +313,6 @@ var canvas = document.getElementById("canvas"),
 ];
 makeLevel(0);
 unlockedstages = document.cookie.slice(6);
-unlockedstages = 100;
 lvlbuttons = document.getElementsByClassName("lvl");
 boxes.push ({
 	x: -10,
