@@ -54,7 +54,9 @@ button {
 }
 #locked {
 	cursor: not-allowed;
+	color: white;
 }
 #unlocked {
 	cursor: pointer;
+	color: black;
 }
