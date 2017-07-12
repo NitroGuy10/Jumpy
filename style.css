@@ -60,6 +60,9 @@ button {
 	cursor: pointer;
 	color: black;
 }
-footer {
-  text-align: center;
+#creator {
+	color: black;
+}
+#creatorbutton {
+	background-color: #5555ff;
 }
