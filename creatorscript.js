@@ -484,7 +484,7 @@ function updateEditor() {
 	}
 }
 function unload() {
-    return "Bye!";
+    return "Your level will NOT be saved if you exit.";
 }
 function clearLvl(bypass) {
 	if (bypass)
