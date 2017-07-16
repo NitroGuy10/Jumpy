@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Jumpy Level Creator</title>
+<meta charset=UTF-8>
+<meta name=description content="Jumpy Game">
+<meta name=keywords content="Jumpy,NitroGuy,NitroGuy10">
+<meta name=author content="NitroGuy/NitroGuy10">
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+table, th, td {
+    /* border: 1px solid black;
+	border-collapse: collapse; */
+	text-align: center;
+	font-size: 2vw;
+	margin: auto;
+	line-height: 1.2vw;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+td {
+	cursor: pointer;
+}
+td:hover {
+	background-color: gray;
+}
+.c0 {
+	color: #cce6ff;
+}
+.c1 {
+	color: black;
+}
+.c2 {
+	color: red;
+}
+.c3 {
+	color: green;
+}
+.c4 {
+	color: purple;
+}
+.c5 {
+	color: gray;
+}
+textarea {
+	display: block;
+	margin: auto;
+	border: 5px solid black;
+	resize: none;
+}
+h3 {
+	text-align: center;
+	font-size: 1.5vw;
+	font-family: Arial, sans-serif;
+}
+</style>
+</head>
+<body onbeforeunload="return unload()">
+<canvas id="canvas"></canvas>
+<script src="creatorscript.js"></script>
+<h1>Jumpy Level Creator</h1>
+<p><!--<button onclick="">Toggle Music</button>-->
+<p><button id="worldbutton" onclick="incWorld()">Normal</button>    <button onclick="clearLvl()">Clear</button>    <button onclick="save()">Save</button></p>
+<p>
+<div id="alltbl">
+<table id="tbl">
+<tr><td id="0000" onclick="edit(00,00)" class="c0">■</td><td id="0100" onclick="edit(01,00)" class="c0">■</td><td id="0200" onclick="edit(02,00)" class="c0">■</td><td id="0300" onclick="edit(03,00)" class="c0">■</td><td id="0400" onclick="edit(04,00)" class="c0">■</td><td id="0500" onclick="edit(05,00)" class="c0">■</td><td id="0600" onclick="edit(06,00)" class="c0">■</td><td id="0700" onclick="edit(07,00)" class="c0">■</td><td id="0800" onclick="edit(08,00)" class="c0">■</td><td id="0900" onclick="edit(09,00)" class="c0">■</td><td id="1000" onclick="edit(10,00)" class="c0">■</td><td id="1100" onclick="edit(11,00)" class="c0">■</td><td id="1200" onclick="edit(12,00)" class="c0">■</td><td id="1300" onclick="edit(13,00)" class="c0">■</td><td id="1400" onclick="edit(14,00)" class="c0">■</td><td id="1500" onclick="edit(15,00)" class="c0">■</td><td id="1600" onclick="edit(16,00)" class="c0">■</td><td id="1700" onclick="edit(17,00)" class="c0">■</td><td id="1800" onclick="edit(18,00)" class="c0">■</td><td id="1900" onclick="edit(19,00)" class="c0">■</td><td id="2000" onclick="edit(20,00)" class="c0">■</td><td id="2100" onclick="edit(21,00)" class="c0">■</td><td id="2200" onclick="edit(22,00)" class="c0">■</td><td id="2300"  onclick="edit(23,00)" class="c0">■</td></tr>
+<tr><td id="0001" onclick="edit(00,01)" class="c0">■</td><td id="0101" onclick="edit(01,01)" class="c0">■</td><td id="0201" onclick="edit(02,01)" class="c0">■</td><td id="0301" onclick="edit(03,01)" class="c0">■</td><td id="0401" onclick="edit(04,01)" class="c0">■</td><td id="0501" onclick="edit(05,01)" class="c0">■</td><td id="0601" onclick="edit(06,01)" class="c0">■</td><td id="0701" onclick="edit(07,01)" class="c0">■</td><td id="0801" onclick="edit(08,01)" class="c0">■</td><td id="0901" onclick="edit(09,01)" class="c0">■</td><td id="1001" onclick="edit(10,01)" class="c0">■</td><td id="1101" onclick="edit(11,01)" class="c0">■</td><td id="1201" onclick="edit(12,01)" class="c0">■</td><td id="1301" onclick="edit(13,01)" class="c0">■</td><td id="1401" onclick="edit(14,01)" class="c0">■</td><td id="1501" onclick="edit(15,01)" class="c0">■</td><td id="1601" onclick="edit(16,01)" class="c0">■</td><td id="1701" onclick="edit(17,01)" class="c0">■</td><td id="1801" onclick="edit(18,01)" class="c0">■</td><td id="1901" onclick="edit(19,01)" class="c0">■</td><td id="2001" onclick="edit(20,01)" class="c0">■</td><td id="2101" onclick="edit(21,01)" class="c0">■</td><td id="2201" onclick="edit(22,01)" class="c0">■</td><td id="2301"  onclick="edit(23,01)" class="c0">■</td></tr>
+<tr><td id="0002" onclick="edit(00,02)" class="c0">■</td><td id="0102" onclick="edit(01,02)" class="c0">■</td><td id="0202" onclick="edit(02,02)" class="c0">■</td><td id="0302" onclick="edit(03,02)" class="c0">■</td><td id="0402" onclick="edit(04,02)" class="c0">■</td><td id="0502" onclick="edit(05,02)" class="c0">■</td><td id="0602" onclick="edit(06,02)" class="c0">■</td><td id="0702" onclick="edit(07,02)" class="c0">■</td><td id="0802" onclick="edit(08,02)" class="c0">■</td><td id="0902" onclick="edit(09,02)" class="c0">■</td><td id="1002" onclick="edit(10,02)" class="c0">■</td><td id="1102" onclick="edit(11,02)" class="c0">■</td><td id="1202" onclick="edit(12,02)" class="c0">■</td><td id="1302" onclick="edit(13,02)" class="c0">■</td><td id="1402" onclick="edit(14,02)" class="c0">■</td><td id="1502" onclick="edit(15,02)" class="c0">■</td><td id="1602" onclick="edit(16,02)" class="c0">■</td><td id="1702" onclick="edit(17,02)" class="c0">■</td><td id="1802" onclick="edit(18,02)" class="c0">■</td><td id="1902" onclick="edit(19,02)" class="c0">■</td><td id="2002" onclick="edit(20,02)" class="c0">■</td><td id="2102" onclick="edit(21,02)" class="c0">■</td><td id="2202" onclick="edit(22,02)" class="c0">■</td><td id="2302"  onclick="edit(23,02)" class="c0">■</td></tr>
+<tr><td id="0003" onclick="edit(00,03)" class="c0">■</td><td id="0103" onclick="edit(01,03)" class="c0">■</td><td id="0203" onclick="edit(02,03)" class="c0">■</td><td id="0303" onclick="edit(03,03)" class="c0">■</td><td id="0403" onclick="edit(04,03)" class="c0">■</td><td id="0503" onclick="edit(05,03)" class="c0">■</td><td id="0603" onclick="edit(06,03)" class="c0">■</td><td id="0703" onclick="edit(07,03)" class="c0">■</td><td id="0803" onclick="edit(08,03)" class="c0">■</td><td id="0903" onclick="edit(09,03)" class="c0">■</td><td id="1003" onclick="edit(10,03)" class="c0">■</td><td id="1103" onclick="edit(11,03)" class="c0">■</td><td id="1203" onclick="edit(12,03)" class="c0">■</td><td id="1303" onclick="edit(13,03)" class="c0">■</td><td id="1403" onclick="edit(14,03)" class="c0">■</td><td id="1503" onclick="edit(15,03)" class="c0">■</td><td id="1603" onclick="edit(16,03)" class="c0">■</td><td id="1703" onclick="edit(17,03)" class="c0">■</td><td id="1803" onclick="edit(18,03)" class="c0">■</td><td id="1903" onclick="edit(19,03)" class="c0">■</td><td id="2003" onclick="edit(20,03)" class="c0">■</td><td id="2103" onclick="edit(21,03)" class="c0">■</td><td id="2203" onclick="edit(22,03)" class="c0">■</td><td id="2303"  onclick="edit(23,03)" class="c0">■</td></tr>
+<tr><td id="0004" onclick="edit(00,04)" class="c0">■</td><td id="0104" onclick="edit(01,04)" class="c0">■</td><td id="0204" onclick="edit(02,04)" class="c0">■</td><td id="0304" onclick="edit(03,04)" class="c0">■</td><td id="0404" onclick="edit(04,04)" class="c0">■</td><td id="0504" onclick="edit(05,04)" class="c0">■</td><td id="0604" onclick="edit(06,04)" class="c0">■</td><td id="0704" onclick="edit(07,04)" class="c0">■</td><td id="0804" onclick="edit(08,04)" class="c0">■</td><td id="0904" onclick="edit(09,04)" class="c0">■</td><td id="1004" onclick="edit(10,04)" class="c0">■</td><td id="1104" onclick="edit(11,04)" class="c0">■</td><td id="1204" onclick="edit(12,04)" class="c0">■</td><td id="1304" onclick="edit(13,04)" class="c0">■</td><td id="1404" onclick="edit(14,04)" class="c0">■</td><td id="1504" onclick="edit(15,04)" class="c0">■</td><td id="1604" onclick="edit(16,04)" class="c0">■</td><td id="1704" onclick="edit(17,04)" class="c0">■</td><td id="1804" onclick="edit(18,04)" class="c0">■</td><td id="1904" onclick="edit(19,04)" class="c0">■</td><td id="2004" onclick="edit(20,04)" class="c0">■</td><td id="2104" onclick="edit(21,04)" class="c0">■</td><td id="2204" onclick="edit(22,04)" class="c0">■</td><td id="2304"  onclick="edit(23,04)" class="c0">■</td></tr>
+<tr><td id="0005" onclick="edit(00,05)" class="c0">■</td><td id="0105" onclick="edit(01,05)" class="c0">■</td><td id="0205" onclick="edit(02,05)" class="c0">■</td><td id="0305" onclick="edit(03,05)" class="c0">■</td><td id="0405" onclick="edit(04,05)" class="c0">■</td><td id="0505" onclick="edit(05,05)" class="c0">■</td><td id="0605" onclick="edit(06,05)" class="c0">■</td><td id="0705" onclick="edit(07,05)" class="c0">■</td><td id="0805" onclick="edit(08,05)" class="c0">■</td><td id="0905" onclick="edit(09,05)" class="c0">■</td><td id="1005" onclick="edit(10,05)" class="c0">■</td><td id="1105" onclick="edit(11,05)" class="c0">■</td><td id="1205" onclick="edit(12,05)" class="c0">■</td><td id="1305" onclick="edit(13,05)" class="c0">■</td><td id="1405" onclick="edit(14,05)" class="c0">■</td><td id="1505" onclick="edit(15,05)" class="c0">■</td><td id="1605" onclick="edit(16,05)" class="c0">■</td><td id="1705" onclick="edit(17,05)" class="c0">■</td><td id="1805" onclick="edit(18,05)" class="c0">■</td><td id="1905" onclick="edit(19,05)" class="c0">■</td><td id="2005" onclick="edit(20,05)" class="c0">■</td><td id="2105" onclick="edit(21,05)" class="c0">■</td><td id="2205" onclick="edit(22,05)" class="c0">■</td><td id="2305"  onclick="edit(23,05)" class="c0">■</td></tr>
+<tr><td id="0006" onclick="edit(00,06)" class="c0">■</td><td id="0106" onclick="edit(01,06)" class="c0">■</td><td id="0206" onclick="edit(02,06)" class="c0">■</td><td id="0306" onclick="edit(03,06)" class="c0">■</td><td id="0406" onclick="edit(04,06)" class="c0">■</td><td id="0506" onclick="edit(05,06)" class="c0">■</td><td id="0606" onclick="edit(06,06)" class="c0">■</td><td id="0706" onclick="edit(07,06)" class="c0">■</td><td id="0806" onclick="edit(08,06)" class="c0">■</td><td id="0906" onclick="edit(09,06)" class="c0">■</td><td id="1006" onclick="edit(10,06)" class="c0">■</td><td id="1106" onclick="edit(11,06)" class="c0">■</td><td id="1206" onclick="edit(12,06)" class="c0">■</td><td id="1306" onclick="edit(13,06)" class="c0">■</td><td id="1406" onclick="edit(14,06)" class="c0">■</td><td id="1506" onclick="edit(15,06)" class="c0">■</td><td id="1606" onclick="edit(16,06)" class="c0">■</td><td id="1706" onclick="edit(17,06)" class="c0">■</td><td id="1806" onclick="edit(18,06)" class="c0">■</td><td id="1906" onclick="edit(19,06)" class="c0">■</td><td id="2006" onclick="edit(20,06)" class="c0">■</td><td id="2106" onclick="edit(21,06)" class="c0">■</td><td id="2206" onclick="edit(22,06)" class="c0">■</td><td id="2306"  onclick="edit(23,06)" class="c0">■</td></tr>
+<tr><td id="0007" onclick="edit(00,07)" class="c0">■</td><td id="0107" onclick="edit(01,07)" class="c0">■</td><td id="0207" onclick="edit(02,07)" class="c0">■</td><td id="0307" onclick="edit(03,07)" class="c0">■</td><td id="0407" onclick="edit(04,07)" class="c0">■</td><td id="0507" onclick="edit(05,07)" class="c0">■</td><td id="0607" onclick="edit(06,07)" class="c0">■</td><td id="0707" onclick="edit(07,07)" class="c0">■</td><td id="0807" onclick="edit(08,07)" class="c0">■</td><td id="0907" onclick="edit(09,07)" class="c0">■</td><td id="1007" onclick="edit(10,07)" class="c0">■</td><td id="1107" onclick="edit(11,07)" class="c0">■</td><td id="1207" onclick="edit(12,07)" class="c0">■</td><td id="1307" onclick="edit(13,07)" class="c0">■</td><td id="1407" onclick="edit(14,07)" class="c0">■</td><td id="1507" onclick="edit(15,07)" class="c0">■</td><td id="1607" onclick="edit(16,07)" class="c0">■</td><td id="1707" onclick="edit(17,07)" class="c0">■</td><td id="1807" onclick="edit(18,07)" class="c0">■</td><td id="1907" onclick="edit(19,07)" class="c0">■</td><td id="2007" onclick="edit(20,07)" class="c0">■</td><td id="2107" onclick="edit(21,07)" class="c0">■</td><td id="2207" onclick="edit(22,07)" class="c0">■</td><td id="2307"  onclick="edit(23,07)" class="c0">■</td></tr>
+<tr><td id="0008" onclick="edit(00,08)" class="c0">■</td><td id="0108" onclick="edit(01,08)" class="c0">■</td><td id="0208" onclick="edit(02,08)" class="c0">■</td><td id="0308" onclick="edit(03,08)" class="c0">■</td><td id="0408" onclick="edit(04,08)" class="c0">■</td><td id="0508" onclick="edit(05,08)" class="c0">■</td><td id="0608" onclick="edit(06,08)" class="c0">■</td><td id="0708" onclick="edit(07,08)" class="c0">■</td><td id="0808" onclick="edit(08,08)" class="c0">■</td><td id="0908" onclick="edit(09,08)" class="c0">■</td><td id="1008" onclick="edit(10,08)" class="c0">■</td><td id="1108" onclick="edit(11,08)" class="c0">■</td><td id="1208" onclick="edit(12,08)" class="c0">■</td><td id="1308" onclick="edit(13,08)" class="c0">■</td><td id="1408" onclick="edit(14,08)" class="c0">■</td><td id="1508" onclick="edit(15,08)" class="c0">■</td><td id="1608" onclick="edit(16,08)" class="c0">■</td><td id="1708" onclick="edit(17,08)" class="c0">■</td><td id="1808" onclick="edit(18,08)" class="c0">■</td><td id="1908" onclick="edit(19,08)" class="c0">■</td><td id="2008" onclick="edit(20,08)" class="c0">■</td><td id="2108" onclick="edit(21,08)" class="c0">■</td><td id="2208" onclick="edit(22,08)" class="c0">■</td><td id="2308"  onclick="edit(23,08)" class="c0">■</td></tr>
+<tr><td id="0009" onclick="edit(00,09)" class="c0">■</td><td id="0109" onclick="edit(01,09)" class="c0">■</td><td id="0209" onclick="edit(02,09)" class="c0">■</td><td id="0309" onclick="edit(03,09)" class="c0">■</td><td id="0409" onclick="edit(04,09)" class="c0">■</td><td id="0509" onclick="edit(05,09)" class="c0">■</td><td id="0609" onclick="edit(06,09)" class="c0">■</td><td id="0709" onclick="edit(07,09)" class="c0">■</td><td id="0809" onclick="edit(08,09)" class="c0">■</td><td id="0909" onclick="edit(09,09)" class="c0">■</td><td id="1009" onclick="edit(10,09)" class="c0">■</td><td id="1109" onclick="edit(11,09)" class="c0">■</td><td id="1209" onclick="edit(12,09)" class="c0">■</td><td id="1309" onclick="edit(13,09)" class="c0">■</td><td id="1409" onclick="edit(14,09)" class="c0">■</td><td id="1509" onclick="edit(15,09)" class="c0">■</td><td id="1609" onclick="edit(16,09)" class="c0">■</td><td id="1709" onclick="edit(17,09)" class="c0">■</td><td id="1809" onclick="edit(18,09)" class="c0">■</td><td id="1909" onclick="edit(19,09)" class="c0">■</td><td id="2009" onclick="edit(20,09)" class="c0">■</td><td id="2109" onclick="edit(21,09)" class="c0">■</td><td id="2209" onclick="edit(22,09)" class="c0">■</td><td id="2309"  onclick="edit(23,09)" class="c0">■</td></tr>
+<tr><td id="0010" onclick="edit(00,10)" class="c0">■</td><td id="0110" onclick="edit(01,10)" class="c0">■</td><td id="0210" onclick="edit(02,10)" class="c0">■</td><td id="0310" onclick="edit(03,10)" class="c0">■</td><td id="0410" onclick="edit(04,10)" class="c0">■</td><td id="0510" onclick="edit(05,10)" class="c0">■</td><td id="0610" onclick="edit(06,10)" class="c0">■</td><td id="0710" onclick="edit(07,10)" class="c0">■</td><td id="0810" onclick="edit(08,10)" class="c0">■</td><td id="0910" onclick="edit(09,10)" class="c0">■</td><td id="1010" onclick="edit(10,10)" class="c0">■</td><td id="1110" onclick="edit(11,10)" class="c0">■</td><td id="1210" onclick="edit(12,10)" class="c0">■</td><td id="1310" onclick="edit(13,10)" class="c0">■</td><td id="1410" onclick="edit(14,10)" class="c0">■</td><td id="1510" onclick="edit(15,10)" class="c0">■</td><td id="1610" onclick="edit(16,10)" class="c0">■</td><td id="1710" onclick="edit(17,10)" class="c0">■</td><td id="1810" onclick="edit(18,10)" class="c0">■</td><td id="1910" onclick="edit(19,10)" class="c0">■</td><td id="2010" onclick="edit(20,10)" class="c0">■</td><td id="2110" onclick="edit(21,10)" class="c0">■</td><td id="2210" onclick="edit(22,10)" class="c0">■</td><td id="2310"  onclick="edit(23,10)" class="c0">■</td></tr>
+<tr><td id="0011" onclick="edit(00,11)" class="c0">■</td><td id="0111" onclick="edit(01,11)" class="c0">■</td><td id="0211" onclick="edit(02,11)" class="c0">■</td><td id="0311" onclick="edit(03,11)" class="c0">■</td><td id="0411" onclick="edit(04,11)" class="c0">■</td><td id="0511" onclick="edit(05,11)" class="c0">■</td><td id="0611" onclick="edit(06,11)" class="c0">■</td><td id="0711" onclick="edit(07,11)" class="c0">■</td><td id="0811" onclick="edit(08,11)" class="c0">■</td><td id="0911" onclick="edit(09,11)" class="c0">■</td><td id="1011" onclick="edit(10,11)" class="c0">■</td><td id="1111" onclick="edit(11,11)" class="c0">■</td><td id="1211" onclick="edit(12,11)" class="c0">■</td><td id="1311" onclick="edit(13,11)" class="c0">■</td><td id="1411" onclick="edit(14,11)" class="c0">■</td><td id="1511" onclick="edit(15,11)" class="c0">■</td><td id="1611" onclick="edit(16,11)" class="c0">■</td><td id="1711" onclick="edit(17,11)" class="c0">■</td><td id="1811" onclick="edit(18,11)" class="c0">■</td><td id="1911" onclick="edit(19,11)" class="c0">■</td><td id="2011" onclick="edit(20,11)" class="c0">■</td><td id="2111" onclick="edit(21,11)" class="c0">■</td><td id="2211" onclick="edit(22,11)" class="c0">■</td><td id="2311"  onclick="edit(23,11)" class="c0">■</td></tr>
+<tr><td id="0012" onclick="edit(00,12)" class="c0">■</td><td id="0112" onclick="edit(01,12)" class="c0">■</td><td id="0212" onclick="edit(02,12)" class="c0">■</td><td id="0312" onclick="edit(03,12)" class="c0">■</td><td id="0412" onclick="edit(04,12)" class="c0">■</td><td id="0512" onclick="edit(05,12)" class="c0">■</td><td id="0612" onclick="edit(06,12)" class="c0">■</td><td id="0712" onclick="edit(07,12)" class="c0">■</td><td id="0812" onclick="edit(08,12)" class="c0">■</td><td id="0912" onclick="edit(09,12)" class="c0">■</td><td id="1012" onclick="edit(10,12)" class="c0">■</td><td id="1112" onclick="edit(11,12)" class="c0">■</td><td id="1212" onclick="edit(12,12)" class="c0">■</td><td id="1312" onclick="edit(13,12)" class="c0">■</td><td id="1412" onclick="edit(14,12)" class="c0">■</td><td id="1512" onclick="edit(15,12)" class="c0">■</td><td id="1612" onclick="edit(16,12)" class="c0">■</td><td id="1712" onclick="edit(17,12)" class="c0">■</td><td id="1812" onclick="edit(18,12)" class="c0">■</td><td id="1912" onclick="edit(19,12)" class="c0">■</td><td id="2012" onclick="edit(20,12)" class="c0">■</td><td id="2112" onclick="edit(21,12)" class="c0">■</td><td id="2212" onclick="edit(22,12)" class="c0">■</td><td id="2312"  onclick="edit(23,12)" class="c0">■</td></tr>
+<tr><td id="0013" onclick="edit(00,13)" class="c0">■</td><td id="0113" onclick="edit(01,13)" class="c0">■</td><td id="0213" onclick="edit(02,13)" class="c0">■</td><td id="0313" onclick="edit(03,13)" class="c0">■</td><td id="0413" onclick="edit(04,13)" class="c0">■</td><td id="0513" onclick="edit(05,13)" class="c0">■</td><td id="0613" onclick="edit(06,13)" class="c0">■</td><td id="0713" onclick="edit(07,13)" class="c0">■</td><td id="0813" onclick="edit(08,13)" class="c0">■</td><td id="0913" onclick="edit(09,13)" class="c0">■</td><td id="1013" onclick="edit(10,13)" class="c0">■</td><td id="1113" onclick="edit(11,13)" class="c0">■</td><td id="1213" onclick="edit(12,13)" class="c0">■</td><td id="1313" onclick="edit(13,13)" class="c0">■</td><td id="1413" onclick="edit(14,13)" class="c0">■</td><td id="1513" onclick="edit(15,13)" class="c0">■</td><td id="1613" onclick="edit(16,13)" class="c0">■</td><td id="1713" onclick="edit(17,13)" class="c0">■</td><td id="1813" onclick="edit(18,13)" class="c0">■</td><td id="1913" onclick="edit(19,13)" class="c0">■</td><td id="2013" onclick="edit(20,13)" class="c0">■</td><td id="2113" onclick="edit(21,13)" class="c0">■</td><td id="2213" onclick="edit(22,13)" class="c0">■</td><td id="2313"  onclick="edit(23,13)" class="c0">■</td></tr>
+</table>
+</div>
+</p>
+<h2>How to use:</h2>
+<p><strong>Click on the squares above to place tiles. Click multiple times to change the block type. When you are done, click "Save". You will receive a string of numbers and commas. Copy this string into a text document on your computer or somewhere else where you can store it. Anytime you want to play your level again, copy your string into the text box and click "Load".</strong></p>
+<br />
+<h3>Load/Save Box</h3>
+<textarea rows="12" cols="69" maxlength="673" id="slbox">
+</textarea>
+<p><button onclick="load()">Load</button></p>
+<br />
+<br />
+<br />
+<p><button id="creatorbutton"><strong><a href="index.html" id="creator">Jumpy</a></strong></button></p>
+<p><a href=https://nitroguy10.github.io>https://nitroguy10.github.io</a></p>
+<p><a href=https://github.com/NitroGuy10>https://github.com/nitroguy10</a></p>
+<p><a href=https://soundcloud.com/nitroguy10>https://soundcloud.com/nitroguy10</a></p>
+<br />
+<p style="color: gray;">Last updated 6/1/2017 at 02:26:40 UTC</p>
+</body>
+</html>
