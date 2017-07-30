@@ -542,7 +542,8 @@ function save() {
 	window.scrollTo(0, 800);
 }
 function load() {
-	clearLvl();
+	var clrldconf = confirm("Are you sure you want to clear your current level?");
+	if (clrldconf) {
 	safeLoad = true;
 	var loadstr = document.getElementById("slbox").value;
 	for (lstrn = 0; lstrn < 673; lstrn += 2) {
@@ -588,5 +589,6 @@ function load() {
 		alert("Incorrect level formatting.");
 		clearLvl(true);
 		world = 1;
+	}
 	}
 }
