@@ -29,6 +29,9 @@ button {
 	display: inline-block;
 	font-size: 1vw;
 }
+footer {
+	text-align: center;
+}
 .list {
     position: relative;
     display: inline-block;
