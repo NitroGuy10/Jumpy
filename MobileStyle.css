@@ -1,0 +1,53 @@
+﻿#canvas {
+        border: 10px solid black;
+        background-color: #cce6ff;
+        display: block;
+        margin: auto;
+}
+p, a {
+        text-align: center;
+        font-size: 1vw;
+        font-family: Arial, sans-serif;
+}
+h1 {
+        text-align: center;
+        font-size: 20vw;
+        font-family: Impact, Arial, sans-serif;
+}
+h2 {
+        text-align: center;
+        font-size: 2vw;
+        font-family: Arial, sans-serif;
+}
+button {
+        background-color: black;
+        border: none;
+        color: white;
+        padding: 1vw 2vw;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1vw;
+}
+footer {
+        text-align: center;
+}
+.listoptions {
+display: inline-block;
+text-align: center;
+min-width: 1vw;
+}
+.listoptions a {
+   color: black;
+   padding: .5vw 1vw;
+   text-decoration: none;
+        font-size: 7vw;
+}
+#locked {
+        cursor: not-allowed;
+        color: white;
+}
+#unlocked {
+        cursor: pointer;
+        color: black;
+}
