@@ -378,6 +378,8 @@ unlockedstages = document.cookie.slice(6);
 lvlbuttons = document.getElementsByClassName("lvl");
 if (location.hash == "#night")
 	document.body.style.backgroundColor = "#111111"; // For late night programming :)
+if (location.hash == "#unlockallthelevelsplzthx")
+	unlockedstages = 99;
 boxes.push ({
 	x: -10,
 	y: 0,
