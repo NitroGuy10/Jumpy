@@ -1,4 +1,8 @@
 /* 
+Goals for new level creator:
+Allow painting (holding down mouse to change multiple tiles)
+Have a pallate to switch block types
+
 Key Codes:
 13 - Enter
 27 - Escape
