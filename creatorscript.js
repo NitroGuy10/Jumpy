@@ -602,6 +602,7 @@ function clearLvl(bypass) {
 		lvl[0][11] = loadstr.slice(528,575).split(",");
 		lvl[0][12] = loadstr.slice(576,623).split(",");
 		lvl[0][13] = loadstr.slice(624,671).split(",");
+		ctx.clearRect(0, 0, width, height);
 		makeLevel(0);
 		player.velY = 0;
 		if (world == 2) {
