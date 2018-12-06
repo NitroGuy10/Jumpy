@@ -378,8 +378,6 @@ load();
 lvlbuttons = document.getElementsByClassName("lvl");
 if (location.hash == "#night")
 document.body.style.backgroundColor = "#111111"; // For late night programming :)
-if (location.hash == "#unlockallthelevelsplzthx")
-unlockedstages = 99;
 boxes.push ({
 	x: -10,
 	y: 0,
@@ -425,7 +423,15 @@ function deleteSave() {
 		window.localStorage.removeItem("savefile");	
 	}
 }
+if (location.hash == "#unlockallthelevelsplzthx")
+{
+unlockedstages = 99;
+gotoLevel(0);
+}
+else
+{
 gotoLevel(unlockedstages);
+}
 function update() {
 	for (var i = 0; i < lvlbuttons.length; i++) {
 		if (i > unlockedstages) {
