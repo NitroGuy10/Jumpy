@@ -40,6 +40,8 @@ stage = 0,
 unlockedstages = 0,
 world = 1,
 boxes = [],
+lastTimestamp,
+paused = false,
 lvl = [
 	[ //level 1
 		[3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -432,7 +434,27 @@ else
 {
 gotoLevel(unlockedstages);
 }
-function update() {
+document.addEventListener("visibilitychange", (event) => {paused = true})
+function update(timestamp) {
+	// Refresh rate patch 2021
+	if (timestamp === undefined)
+	{
+		timestamp = Date.now()
+	}
+	if (lastTimestamp === undefined)
+	{
+		lastTimestamp = timestamp - 6
+	}
+	const deltaTime = timestamp - lastTimestamp
+	const effectiveDeltaTime = deltaTime * 0.064
+	lastTimestamp = timestamp
+	if (paused || deltaTime > 200)
+	{
+		paused = false;
+		requestAnimationFrame(update);
+		return;
+	}
+
 	for (var i = 0; i < lvlbuttons.length; i++) {
 		if (i > unlockedstages) {
 			lvlbuttons[i].id = "locked";
@@ -458,7 +480,7 @@ function update() {
 		if (player.velX > -player.speed) {player.velX--;}
 	}
 	player.velX *= friction;
-	player.velY += gravity;
+	player.velY += gravity * effectiveDeltaTime
 	ctx.clearRect(0, 0, width, height);
 	ctx.beginPath();
 	player.grounded = false;
@@ -576,8 +598,8 @@ function update() {
 	if (player.grounded) {
 		player.velY = 0;
 	}
-	player.x += player.velX;
-	player.y += player.velY;
+	player.x += player.velX * effectiveDeltaTime
+	player.y += player.velY * effectiveDeltaTime
 	ctx.fill();
 	ctx.fillStyle = "blue";
 	ctx.fillRect(player.x, player.y, player.width, player.height);
