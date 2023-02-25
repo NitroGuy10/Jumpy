@@ -440,7 +440,7 @@ function update() {
 			lvlbuttons[i].id = "unlocked";
 		}
 	}
-	if (keys[38] || keys[32]) { //Up
+	if (keys[38] || keys[32] || keys[87]) { //Up
 		if (!player.jumping && player.grounded) {
 			player.jumping = true;
 			player.grounded = false;
@@ -451,10 +451,10 @@ function update() {
 			}
 		}
 	}
-	if (keys[39]) { //Right
+	if (keys[39] || keys[68]) { //Right
 		if (player.velX < player.speed) {player.velX++;}
 	}
-	if (keys[37]) { //Left
+	if (keys[37] || keys[65]) { //Left
 		if (player.velX > -player.speed) {player.velX--;}
 	}
 	player.velX *= friction;
