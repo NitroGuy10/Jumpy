@@ -22,6 +22,10 @@
 	var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 	window.requestAnimationFrame = requestAnimationFrame;
 })();
+
+let startTimestamp;
+let previousTimeStamp;
+
 var canvas = document.getElementById("canvas"),
 ctx = canvas.getContext("2d"),
 width = 480,
@@ -98,7 +102,28 @@ boxes.push ({
 });
 canvas.width = width;
 canvas.height = height;
-function update() {
+function update(timestamp) {
+	if (startTimestamp === undefined)
+	{
+		startTimestamp = timestamp;
+	}
+	if (previousTimeStamp === undefined)
+	{
+		previousTimeStamp = timestamp;
+	}
+	const elapsedTime = timestamp - startTimestamp;
+	const deltaTime = timestamp - previousTimeStamp;
+	if (timestamp === previousTimeStamp || deltaTime > 100)
+	{
+		console.log("skipping frame\ndeltatime: " + deltaTime + "\ntimestamp: " + timestamp + "\npreviousTimeStamp: " + previousTimeStamp);
+		previousTimeStamp = timestamp;
+		requestAnimationFrame(update);
+		return;
+	}
+	const timeScalar = (deltaTime / 1000) * 60;
+	// console.log(deltaTime);
+	// console.log((timeScalar));
+	
 	if (keys[38] || keys[32]) { //Up
 		if (!player.jumping && player.grounded) {
 			player.jumping = true;
@@ -117,7 +142,7 @@ function update() {
 		if (player.velX > -player.speed) {player.velX--;}
 	}
 	player.velX *= friction;
-	player.velY += gravity;
+	player.velY += gravity * timeScalar;
 	if (world != 5)
 	ctx.clearRect(0, 0, width, height);
 	ctx.beginPath();
@@ -221,11 +246,19 @@ function update() {
 	if (player.grounded) {
 		player.velY = 0;
 	}
-	player.x += player.velX;
-	player.y += player.velY;
+		
+	player.x += player.velX * timeScalar;
+	player.y += player.velY * timeScalar;
+
+	if (Math.abs(player.velY) > 0.5)
+	{
+		console.log(player.y);
+	}
+
 	ctx.fill();
 	ctx.fillStyle = "blue";
 	ctx.fillRect(player.x, player.y, player.width, player.height);
+	previousTimeStamp = timestamp;
 	requestAnimationFrame(update);
 }
 function colCheck(shapeA, shapeB) {
