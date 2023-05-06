@@ -21,6 +21,9 @@
 
 let startTimestamp;
 let previousTimeStamp;
+let deltaTimes10to20 = [];
+let frameCount = 0;
+let is60Hz;
 
 var canvas = document.getElementById("canvas"),
 ctx = canvas.getContext("2d"),
@@ -437,6 +440,10 @@ else
 gotoLevel(unlockedstages);
 }
 function update(timestamp) {
+	if (is60Hz === undefined)
+	{
+		frameCount++;
+	}
 	if (startTimestamp === undefined)
 	{
 		startTimestamp = timestamp;
@@ -445,8 +452,27 @@ function update(timestamp) {
 	{
 		previousTimeStamp = timestamp;
 	}
-	const elapsedTime = timestamp - startTimestamp;
+	// const elapsedTime = timestamp - startTimestamp;
 	const deltaTime = timestamp - previousTimeStamp;
+	if (frameCount >= 10 && frameCount < 20)
+	{
+		deltaTimes10to20.push(deltaTime);
+		requestAnimationFrame(update);
+		return;
+	}
+	else if (frameCount == 20 && is60Hz === undefined)
+	{
+		let sum = 0;
+		for (let i = 0; i < deltaTimes10to20.length; i++)
+		{
+			sum += deltaTimes10to20[i];
+		}
+		averageDeltaTime = sum / deltaTimes10to20.length;
+		is60Hz = averageDeltaTime > 15 && averageDeltaTime < 17;
+		console.log(is60Hz ? "60Hz" : "not 60Hz")
+		document.getElementById("highfps-warning").style.display = is60Hz ? "none" : "block";
+	}
+
 	if (timestamp === previousTimeStamp || deltaTime > 100)
 	{
 		console.log("skipping frame\ndeltatime: " + deltaTime + "\ntimestamp: " + timestamp + "\npreviousTimeStamp: " + previousTimeStamp);
@@ -454,7 +480,8 @@ function update(timestamp) {
 		requestAnimationFrame(update);
 		return;
 	}
-	const timeScalar = (deltaTime / 1000) * 60;
+
+	let timeScalar = is60Hz ? 1 : (deltaTime / 1000) * 60;
 	// console.log(deltaTime);
 	// console.log((timeScalar));
 
@@ -604,11 +631,6 @@ function update(timestamp) {
 	
 	player.x += player.velX * timeScalar;
 	player.y += player.velY * timeScalar;
-
-	if (Math.abs(player.velY) > 0.5)
-	{
-		console.log(player.y);
-	}
 
 	ctx.fill();
 	ctx.fillStyle = "blue";

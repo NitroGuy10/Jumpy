@@ -11,11 +11,20 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
-<body>
+<div>
 <canvas id="canvas"></canvas>
 <script src="script.js"></script>
   <script src="detect.js"></script>
 <h1>Jumpy</h1>
+
+<div id="highfps-warning">
+  <h2 style="color: red;">High refresh rate detected!</h2>
+  <details>
+    <summary>High framerate info</summary>
+    <p>Jumpy was made in 2017 back when I was a very amateur programmer. As such the physics depended on the refresh rate of the monitor, and were just pretty janky in general. I've <em>tried</em> to correct for that as best I can using "delta time" but the physics are still not 1-to-1 with the original 60hz edition (namely, with higher refresh rates, you jump higher and have much less horizontal damping). This makes the gameplay different (easier?) from the original so I would recommend playing the game on a computer with only 60hz monitors for authenticity.</p>
+  </details>
+</div>
+
 <h2>
 <p><!--<button onclick="">Toggle Music</button>-->
 <div class="list">
@@ -55,12 +64,10 @@
 <br />
 <p><button id="creatorbutton"><strong><a href="creator.html" id="creator">Level Creator</a></strong></button></p>
 <h2>Game by NitroGuy</h2>
-<h2>Some levels by Raptarr</h2>
 <p><a href=https://nitroguy10.github.io>https://nitroguy10.github.io</a></p>
 <p><a href=https://github.com/NitroGuy10>https://github.com/nitroguy10</a></p>
-<p><a href=https://soundcloud.com/nitroguy10>https://soundcloud.com/nitroguy10</a></p>
 <br />
-<p style="color: gray;">Last updated 7/31/2018 at 22:56:20 UTC</p>
+<p style="color: gray;">Last updated 6 May 2023</p>
 <br/>
 <hr />
 <footer>© 2018 NitroGuy</footer>

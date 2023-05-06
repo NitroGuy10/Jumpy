@@ -69,3 +69,17 @@ footer {
 #creatorbutton {
 	background-color: #5555ff;
 }
+
+details {
+	text-align: center;
+	font-family: Arial, sans-serif;
+	font-size: 1.5vw;
+	max-width: 50vw;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+summary {
+	cursor: pointer;
+}
