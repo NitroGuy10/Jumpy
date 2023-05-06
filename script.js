@@ -457,6 +457,7 @@ function update(timestamp) {
 	if (frameCount >= 10 && frameCount < 20)
 	{
 		deltaTimes10to20.push(deltaTime);
+		previousTimeStamp = timestamp;
 		requestAnimationFrame(update);
 		return;
 	}
